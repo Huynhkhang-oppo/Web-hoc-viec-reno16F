@@ -45,50 +45,54 @@
   .hero {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
-    padding: 56px 24px 48px;
-    text-align: center;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
     position: relative;
     overflow: hidden;
+    border-bottom: 2px solid var(--green);
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(29,185,84,0.18) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.15) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(29,185,84,0.12) 0%, transparent 60%);
   }
   .hero-badge {
     display: inline-block;
     background: rgba(29,185,84,0.2);
     border: 1px solid rgba(29,185,84,0.4);
     color: var(--green);
-    padding: 4px 16px;
+    padding: 2px 10px;
     border-radius: 100px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 4px;
     position: relative;
+    display: block;
   }
   .hero h1 {
     font-family: 'Nunito', sans-serif;
-    font-size: clamp(28px, 6vw, 52px);
+    font-size: 18px;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.2;
     position: relative;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   .hero h1 span { color: var(--green); }
   .hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 0;
+    margin-top: 2px;
   }
   .hero-phone-svg {
     position: relative;
     display: inline-block;
-    margin-top: 8px;
+    flex-shrink: 0;
   }
 
   /* NAV TABS */
@@ -763,42 +767,19 @@
 <body>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">📚 Tài Liệu Học Trực Quan</div>
-  <h1>Lời Thoại Bán Hàng<br><span>OPPO Reno16F 5G</span></h1>
-  <p class="hero-sub">Hướng dẫn bán hàng chuyên nghiệp · Phiên bản đào tạo</p>
+<div class="hero" id="page-top">
+  <div style="position:relative; flex:1;">
+    <div class="hero-badge">📚 Tài Liệu Học Trực Quan</div>
+    <h1>Lời Thoại Bán Hàng · <span>OPPO Reno16F 5G</span></h1>
+    <p class="hero-sub">Hướng dẫn bán hàng chuyên nghiệp · Phiên bản đào tạo</p>
+  </div>
   <div class="hero-phone-svg">
-    <svg width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Phone body -->
-      <rect x="15" y="5" width="110" height="190" rx="18" fill="#1a1a2e" stroke="#1DB954" stroke-width="1.5"/>
-      <rect x="20" y="10" width="100" height="180" rx="14" fill="#0d1117"/>
-      <!-- Screen -->
-      <rect x="22" y="22" width="96" height="156" rx="10" fill="#1e293b"/>
-      <!-- Dynamic island -->
-      <rect x="52" y="26" width="36" height="10" rx="5" fill="#0d1117"/>
-      <!-- Screen content - gradient -->
-      <defs>
-        <linearGradient id="screenGrad" x1="22" y1="22" x2="118" y2="178" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#1DB954" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#2563eb" stop-opacity="0.2"/>
-        </linearGradient>
-      </defs>
-      <rect x="22" y="22" width="96" height="156" rx="10" fill="url(#screenGrad)"/>
-      <!-- OPPO text on screen -->
-      <text x="70" y="105" text-anchor="middle" fill="#1DB954" font-size="16" font-weight="bold" font-family="Nunito, sans-serif">OPPO</text>
-      <text x="70" y="123" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Be Vietnam Pro, sans-serif">Reno16F 5G</text>
-      <!-- Camera cluster -->
-      <circle cx="55" cy="155" r="10" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
-      <circle cx="55" cy="155" r="6" fill="#111" stroke="#1DB954" stroke-width="0.8"/>
-      <circle cx="55" cy="155" r="2.5" fill="#1a1a2e"/>
-      <circle cx="75" cy="155" r="8" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
-      <circle cx="75" cy="155" r="5" fill="#111" stroke="#1DB954" stroke-width="0.8"/>
-      <circle cx="75" cy="155" r="2" fill="#1a1a2e"/>
-      <circle cx="90" cy="158" r="5" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
-      <!-- Side buttons -->
-      <rect x="125" y="60" width="4" height="28" rx="2" fill="#2a2a3e"/>
-      <rect x="11" y="55" width="4" height="18" rx="2" fill="#2a2a3e"/>
-      <rect x="11" y="78" width="4" height="18" rx="2" fill="#2a2a3e"/>
+    <svg width="36" height="52" viewBox="0 0 36 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="32" height="48" rx="6" fill="#1a1a2e" stroke="#1DB954" stroke-width="1.2"/>
+      <rect x="4" y="5" width="28" height="42" rx="4" fill="#0d1117"/>
+      <rect x="13" y="7" width="10" height="3" rx="1.5" fill="#0d1117"/>
+      <circle cx="18" cy="41" r="2.5" fill="#1DB954" opacity="0.6"/>
+      <text x="18" y="27" text-anchor="middle" fill="#1DB954" font-size="5" font-weight="bold">OPPO</text>
     </svg>
   </div>
 </div>
