@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Lời Thoại Bán Hàng – OPPO Reno16F 5G</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -257,39 +257,44 @@
     box-shadow: var(--shadow);
     margin-bottom: 14px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .sfabe-header {
-    padding: 14px 20px;
+    order: 2;
+    padding: 12px 18px;
     display: flex;
     align-items: center;
     gap: 12px;
     border-bottom: 1px solid var(--gray-100);
+    border-top: 1px solid var(--gray-100);
   }
   .sfabe-icon {
-    width: 44px; height: 44px;
+    width: 40px; height: 40px;
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    font-size: 20px;
     flex-shrink: 0;
   }
   .sfabe-feature-name {
     font-family: 'Nunito', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
     color: var(--gray-800);
   }
   .sfabe-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
+    order: 3;
+    display: flex;
+    flex-direction: column;
   }
   .sfabe-cell {
-    padding: 14px 18px;
-    border-right: 1px solid var(--gray-100);
+    padding: 12px 18px;
     border-bottom: 1px solid var(--gray-100);
   }
+  .sfabe-cell:last-child { border-bottom: none; }
   .sfabe-cell:nth-child(even) { border-right: none; }
-  .sfabe-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .sfabe-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--gray-100); }
+  .sfabe-cell:last-child { border-bottom: none; }
   .sfabe-label {
     font-size: 10px;
     font-weight: 700;
@@ -308,22 +313,61 @@
   .sfabe-cell-content strong { color: var(--gray-800); }
 
   /* SITUATION BOX */
+  /* SFABE LETTER BADGES */
+  .sfabe-letter {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px; font-weight: 900;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+  .sl-s { background: #fef3c7; color: #92400e; border: 1.5px solid #fbbf24; }
+  .sl-f { background: #dbeafe; color: #1e40af; border: 1.5px solid #3b82f6; }
+  .sl-a { background: #ede9fe; color: #5b21b6; border: 1.5px solid #7c3aed; }
+  .sl-b { background: #dcfce7; color: #14532d; border: 1.5px solid #1DB954; }
+  .sl-e { background: #fee2e2; color: #991b1b; border: 1.5px solid #ef4444; }
+
   .situation-box {
-    background: var(--gray-50);
-    border-radius: var(--radius-sm);
-    padding: 14px 18px;
-    margin: 0 18px 16px;
-    border-left: 3px solid var(--gray-300);
+    order: 1;
+    background: #fffbeb;
+    padding: 12px 18px;
+    border-left: 4px solid #fbbf24;
     font-size: 13px;
-    color: var(--gray-600);
+    color: #78350f;
     font-style: italic;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
   }
   .situation-box::before {
-    content: '💬 Tình huống: ';
-    font-style: normal;
-    font-weight: 700;
-    color: var(--gray-700);
+    content: 'S';
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; min-width: 24px;
+    border-radius: 7px;
+    background: #fbbf24; color: #78350f;
+    font-style: normal; font-weight: 900; font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 1px;
   }
+
+  /* A cell gets green-tinted background, B gets green-light */
+  .sfabe-cell:first-child { background: #faf5ff; }
+  .sfabe-cell:last-child  { background: #f0fdf4; }
+
+  .demo-tip {
+    order: 4;
+    background: linear-gradient(#0a0a0a, #1a1a2e);
+    border-radius: 0;
+    margin: 0;
+    padding: 10px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .demo-tip-icon { font-size: 16px; flex-shrink: 0; }
+  .demo-tip-text { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.85); }
 
   /* HIGHLIGHT PILL */
   .pill {
@@ -548,20 +592,7 @@
   .ov-item { font-size: 11px; color: var(--gray-700); font-weight: 500; padding: 3px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
   .ov-item:last-child { border-bottom: none; }
 
-  /* DEMO TIPS */
-  .demo-tip {
-    background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-    color: white;
-    border-radius: var(--radius-sm);
-    padding: 12px 16px;
-    margin-top: 12px;
-    font-size: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .demo-tip-icon { font-size: 16px; flex-shrink: 0; }
-  .demo-tip-text { line-height: 1.5; }
+  /* DEMO TIPS – overridden by .demo-tip in SFABE section */
   .demo-tip-text strong { color: var(--green); }
 
   /* BADGE */
@@ -753,14 +784,123 @@
   }
   .gift-icon { font-size: 18px; flex-shrink: 0; }
 
-  @media (max-width: 480px) {
-    .specs-grid { grid-template-columns: 1fr 1fr; }
-    .overview-grid { grid-template-columns: 1fr 1fr; }
-    .sfabe-body { grid-template-columns: 1fr; }
-    .sfabe-cell { border-right: none; }
-    .sfabe-cell:nth-child(even) { border-right: none; }
-    .sfabe-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--gray-100); }
-    .sfabe-cell:last-child { border-bottom: none; }
+
+  /* ═══════════════════════════════════════
+     MOBILE OPTIMIZATION
+  ═══════════════════════════════════════ */
+
+  /* Prevent iOS font size inflation */
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* iOS safe-area bottom padding */
+  body { padding-bottom: env(safe-area-inset-bottom); }
+
+  /* Smoother scrolling on iOS */
+  * { -webkit-tap-highlight-color: transparent; }
+
+  @media (max-width: 600px) {
+    /* ── Base ── */
+    body { font-size: 15px; }
+
+    /* ── Hero: ultra compact ── */
+    .hero { padding: 10px 14px; gap: 10px; }
+    .hero h1 { font-size: 15px; }
+    .hero-sub { font-size: 10px; }
+    .hero-badge { font-size: 9px; padding: 2px 8px; }
+    .hero-phone-svg svg { width: 28px; height: 40px; }
+
+    /* ── Nav tabs: taller touch targets ── */
+    .nav-tabs { padding: 0 8px; gap: 2px; }
+    .tab-btn {
+      padding: 12px 12px;
+      font-size: 12px;
+      min-height: 48px;
+      white-space: nowrap;
+    }
+
+    /* ── Sections: tighter padding ── */
+    .section { padding: 14px 12px 32px; }
+
+    /* ── Section headers ── */
+    .section-header h2 { font-size: 20px; }
+    .section-header p { font-size: 12px; }
+
+    /* ── Cards ── */
+    .card { padding: 16px 14px; }
+
+    /* ── SFABE rows ── */
+    .sfabe-header { padding: 10px 14px; gap: 10px; }
+    .sfabe-icon { width: 36px; height: 36px; font-size: 18px; }
+    .sfabe-feature-name { font-size: 14px !important; }
+    .sfabe-cell { padding: 10px 14px; }
+    .sfabe-cell-content { font-size: 12px; }
+    .sfabe-label { font-size: 9px; }
+    .sfabe-letter { width: 22px; height: 22px; font-size: 12px; }
+    .situation-box { padding: 10px 14px; font-size: 12px; }
+    .demo-tip { padding: 8px 14px; }
+    .demo-tip-text { font-size: 11px; }
+
+    /* ── Grids: collapse 2-col to 1-col ── */
+    .specs-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .overview-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ov-card { padding: 14px 12px; }
+    .ov-icon { font-size: 24px; margin-bottom: 6px; }
+    .ov-title { font-size: 11px; }
+    .ov-item { font-size: 10px; }
+
+    /* ── Comparison tables: horizontal scroll ── */
+    .comp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -12px; padding: 0 12px; }
+    .comp-table { min-width: 520px; font-size: 11px; }
+    .comp-table th { padding: 8px 10px; font-size: 10px; }
+    .comp-table td { padding: 8px 10px; font-size: 11px; }
+
+    /* ── Inline grids: collapse with attribute selector ── */
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:repeat(2,1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* ── Q&A ── */
+    .qa-q-text { font-size: 13px; }
+    .qa-answer-inner { font-size: 12px; }
+    .qa-filter-btn { padding: 5px 10px; font-size: 11px; }
+
+    /* ── Flow cards ── */
+    .flow-content { padding: 12px 14px; }
+    .flow-title { font-size: 13px; }
+    .flow-desc { font-size: 12px; }
+    .flow-dot { width: 38px; height: 38px; font-size: 18px; }
+
+    /* ── Question cards ── */
+    .question-num { width: 48px; min-width: 48px; font-size: 22px; }
+    .question-body { padding: 14px 14px; }
+    .question-body .q-text { font-size: 13px; }
+    .question-body .q-hint { font-size: 11px; }
+
+    /* ── Objection cards ── */
+    .obj-q-text { font-size: 13px; }
+    .obj-answer { font-size: 13px; }
+
+    /* ── Persona cards ── */
+    .persona-header { padding: 14px 14px 10px; gap: 10px; }
+    .persona-avatar { width: 46px; height: 46px; font-size: 22px; }
+    .persona-name { font-size: 15px; }
+    .persona-row { font-size: 12px; }
+
+    /* ── Checkshop ── */
+    .cs-section-header { padding: 12px 14px; gap: 10px; }
+    .cs-title { font-size: 14px; }
+    .cs-item { padding: 10px 14px; }
+    .cs-item-name { font-size: 12px; }
+    .cs-item-script { font-size: 11px; }
+
+    /* ── Push/gift cards ── */
+    .gift-grid { grid-template-columns: 1fr; }
+
+    /* ── Promo section ── */
+    .promo-tab::after { top: 4px; font-size: 6px; }
   }
 </style>
 </head>
@@ -787,6 +927,7 @@
 <!-- NAVIGATION TABS -->
 <nav class="nav-tabs">
   <button class="tab-btn active" onclick="showTab('flow', this)">🗺️ Quy Trình</button>
+  <button class="tab-btn" onclick="showTab('camnang', this)">📖 Cẩm Nang PG</button>
   <button class="tab-btn" onclick="showTab('greeting', this)">👋 Chào Hỏi</button>
   <button class="tab-btn" onclick="showTab('overview', this)">⭐ Tổng Quan</button>
   <button class="tab-btn" onclick="showTab('design', this)">✨ Thiết Kế</button>
@@ -801,6 +942,147 @@
 </nav>
 
 <!-- SECTION: QUY TRÌNH -->
+<!-- SECTION: CẨM NANG PG MỚI -->
+<section class="section" id="camnang">
+  <div class="section-header">
+    <h2>📖 Cẩm Nang PG Mới</h2>
+    <p>Kiến thức nền tảng cần nắm vững trước khi tư vấn</p>
+  </div>
+
+  <!-- 1. RAM -->
+  <div class="sfabe-row" style="margin-bottom:14px;">
+    <div class="sfabe-header" style="background:linear-gradient(135deg,#1e40af,#2563eb);">
+      <div class="sfabe-icon" style="background:rgba(255,255,255,0.15); font-size:22px;">💾</div>
+      <div>
+        <div class="sfabe-feature-name" style="color:white; margin-bottom:0;">RAM – Bộ Nhớ Tạm</div>
+        <span class="pill" style="background:rgba(255,255,255,0.2); color:white;">Random Access Memory</span>
+      </div>
+    </div>
+    <div style="padding:16px 18px;">
+      <div style="background:#eff6ff; border-radius:10px; padding:12px 16px; font-size:13px; color:#1e3a8a; line-height:1.8;">
+        <strong>RAM</strong> là bộ nhớ lưu trữ <strong>tạm thời</strong>, dùng để khởi chạy các ứng dụng của máy. Khi tắt máy thì ứng dụng sẽ bị tắt hoặc mất đi.<br><br>
+        📌 <strong>RAM càng lớn → đa nhiệm càng mượt mà.</strong>
+      </div>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <div style="background:#dbeafe; border-radius:8px; padding:8px 12px; font-size:12px; color:#1e40af; font-weight:700; flex:1; text-align:center; min-width:100px;">📱 Reno16F<br><span style="font-size:16px; font-weight:900;">8GB RAM</span><br><span style="font-size:10px; font-weight:400;">Mở rộng thêm 8GB</span></div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:8px 12px; font-size:12px; color:#0369a1; flex:1; text-align:center; min-width:100px;">🎯 Tư vấn<br>"RAM 8GB <strong>dẫn đầu PK</strong>, đa nhiệm mượt, không giật lag"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ROM -->
+  <div class="sfabe-row" style="margin-bottom:14px;">
+    <div class="sfabe-header" style="background:linear-gradient(135deg,#065f46,#059669);">
+      <div class="sfabe-icon" style="background:rgba(255,255,255,0.15); font-size:22px;">🗄️</div>
+      <div>
+        <div class="sfabe-feature-name" style="color:white; margin-bottom:0;">ROM – Bộ Nhớ Lưu Trữ</div>
+        <span class="pill" style="background:rgba(255,255,255,0.2); color:white;">Read Only Memory</span>
+      </div>
+    </div>
+    <div style="padding:16px 18px;">
+      <div style="background:#f0fdf4; border-radius:10px; padding:12px 16px; font-size:13px; color:#14532d; line-height:1.8;">
+        <strong>ROM</strong> là bộ nhớ lưu trữ <strong>hệ thống</strong> hay còn gọi là bộ nhớ trong của máy. Dùng để lưu trữ video, hình ảnh, ứng dụng. Khi tắt máy, video – hình ảnh – ứng dụng sẽ <strong>không bị mất</strong>.<br><br>
+        📌 <strong>ROM càng lớn → khả năng lưu trữ càng nhiều.</strong>
+      </div>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <div style="background:#dcfce7; border-radius:8px; padding:8px 12px; font-size:12px; color:#15803d; font-weight:700; flex:1; text-align:center; min-width:100px;">📱 Reno16F<br><span style="font-size:16px; font-weight:900;">256GB ROM</span><br><span style="font-size:10px; font-weight:400;">Dẫn đầu phân khúc</span></div>
+        <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:12px; color:#166534; flex:1; text-align:center; min-width:100px;">🎯 Tư vấn<br>"256GB lưu được <strong>~50.000 ảnh</strong> hay <strong>100+ giờ video 4K</strong>"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CHIP -->
+  <div class="sfabe-row" style="margin-bottom:14px;">
+    <div class="sfabe-header" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);">
+      <div class="sfabe-icon" style="background:rgba(255,255,255,0.15); font-size:22px;">⚙️</div>
+      <div>
+        <div class="sfabe-feature-name" style="color:white; margin-bottom:0;">Chip – Bộ Xử Lý Trung Tâm</div>
+        <span class="pill" style="background:rgba(255,255,255,0.2); color:white;">CPU / Processor</span>
+      </div>
+    </div>
+    <div style="padding:16px 18px;">
+      <div style="background:#f5f3ff; border-radius:10px; padding:12px 16px; font-size:13px; color:#4c1d95; line-height:1.8;">
+        <strong>Chip</strong> là bộ xử lý trung tâm hay còn gọi là <strong>não của máy</strong>, dùng để xử lý các tác vụ.<br><br>
+        🧩 <strong>Cấu tạo đơn giản của một con chip gồm 4 thành phần:</strong>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+        <div style="background:#ede9fe; border-radius:8px; padding:10px 12px; font-size:12px; color:#5b21b6;">
+          <div style="font-weight:800; margin-bottom:3px;">① Tên gọi</div>
+          <div style="color:#7c3aed;">VD: Dimensity 7300</div>
+        </div>
+        <div style="background:#ede9fe; border-radius:8px; padding:10px 12px; font-size:12px; color:#5b21b6;">
+          <div style="font-weight:800; margin-bottom:3px;">② Số nhân</div>
+          <div style="color:#7c3aed;">VD: 8 nhân</div>
+        </div>
+        <div style="background:#ede9fe; border-radius:8px; padding:10px 12px; font-size:12px; color:#5b21b6;">
+          <div style="font-weight:800; margin-bottom:3px;">③ Tốc độ xử lý</div>
+          <div style="color:#7c3aed;">VD: 2.6 GHz</div>
+        </div>
+        <div style="background:#ddd6fe; border-radius:8px; padding:10px 12px; font-size:12px; color:#4c1d95; font-weight:700;">
+          <div style="font-weight:800; margin-bottom:3px;">④ Tiến trình</div>
+          <div>4nm – <span style="color:#ef4444;">Tiên tiến bậc nhất PK!</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. HĐH -->
+  <div class="sfabe-row" style="margin-bottom:14px;">
+    <div class="sfabe-header" style="background:linear-gradient(135deg,#0a0a0a,#1a1a2e);">
+      <div class="sfabe-icon" style="background:rgba(29,185,84,0.2); font-size:22px;">🤖</div>
+      <div>
+        <div class="sfabe-feature-name" style="color:white; margin-bottom:0;">HĐH – Hệ Điều Hành ColorOS</div>
+        <span class="pill" style="background:rgba(29,185,84,0.2); color:#1DB954; border:1px solid rgba(29,185,84,0.3);">OPPO độc quyền</span>
+      </div>
+    </div>
+    <div style="padding:16px 18px;">
+      <div style="background:#f0fdf4; border-radius:10px; padding:12px 16px; font-size:13px; color:#14532d; line-height:1.8; margin-bottom:10px;">
+        OPPO sử dụng <strong>HĐH Color OS</strong>, đây là HĐH thông minh, <strong>độc quyền của OPPO</strong> được phát triển trên nền tảng Android với nhiều tính năng tiện ích.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="background:#f9fafb; border-radius:8px; padding:8px 12px; font-size:12px; color:#374151; display:flex; align-items:center; gap:8px;"><span style="font-size:16px;">✋</span> <span>Cử chỉ màn hình <strong>sáng</strong> / <strong>tắt</strong></span></div>
+        <div style="background:#f9fafb; border-radius:8px; padding:8px 12px; font-size:12px; color:#374151; display:flex; align-items:center; gap:8px;"><span style="font-size:16px;">📱</span> <span>Thanh bên <strong>thông minh</strong></span></div>
+        <div style="background:#f9fafb; border-radius:8px; padding:8px 12px; font-size:12px; color:#374151; display:flex; align-items:center; gap:8px;"><span style="font-size:16px;">🌐</span> <span>Dịch nhanh <strong>1 chạm</strong></span></div>
+        <div style="background:#f9fafb; border-radius:8px; padding:8px 12px; font-size:12px; color:#374151; display:flex; align-items:center; gap:8px;"><span style="font-size:16px;">👆</span> <span>Cử chỉ <strong>không chạm</strong></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. VOOC -->
+  <div class="sfabe-row" style="margin-bottom:14px;">
+    <div class="sfabe-header" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
+      <div class="sfabe-icon" style="background:rgba(255,255,255,0.15); font-size:22px;">⚡</div>
+      <div>
+        <div class="sfabe-feature-name" style="color:white; margin-bottom:0;">VOOC / Super VOOC – Sạc Nhanh</div>
+        <span class="pill" style="background:rgba(255,255,255,0.2); color:white;">Độc quyền OPPO</span>
+      </div>
+    </div>
+    <div style="padding:16px 18px;">
+      <div style="background:#fff7ed; border-radius:10px; padding:12px 16px; font-size:13px; color:#7c2d12; line-height:1.8; margin-bottom:10px;">
+        <strong>VOOC/Super VOOC</strong> là công nghệ sạc nhanh <strong>độc quyền của OPPO</strong>, được trang bị trên một số điện thoại OPPO.<br><br>
+        ✅ <strong>Ưu điểm:</strong> Sạc nhanh điện áp thấp → an toàn · Bảo vệ bởi <strong>5 cấp độ an toàn</strong>.
+      </div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+        <div style="background:#fed7aa; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#7c2d12; text-align:center;">33W</div>
+        <div style="background:#fdba74; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#7c2d12; text-align:center;">44W</div>
+        <div style="background:#fb923c; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:white; text-align:center;">65W</div>
+        <div style="background:#f97316; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:white; text-align:center;">67W</div>
+        <div style="background:#ea580c; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:800; color:white; text-align:center; border:2px solid white;">⚡ 80W<br><span style="font-size:9px;">Reno16F</span></div>
+      </div>
+      <div style="background:#0a0a0a; border-radius:8px; padding:10px 14px; font-size:12px; color:#1DB954; font-weight:600;">
+        🏆 Reno16F dùng <strong style="color:white;">SUPERVOOC 80W</strong> – Sạc nhanh nhất, an toàn nhất phân khúc
+      </div>
+    </div>
+  </div>
+
+  <!-- Nhiệm vụ -->
+  <div style="background:linear-gradient(135deg,#dc2626,#991b1b); border-radius:16px; padding:20px; text-align:center; box-shadow:0 4px 20px rgba(220,38,38,0.3);">
+    <div style="font-size:18px; margin-bottom:8px;">🎯</div>
+    <div style="font-family:'Nunito',sans-serif; font-size:16px; font-weight:900; color:white; margin-bottom:8px;">Nhiệm Vụ Cuối</div>
+    <div style="font-size:13px; color:rgba(255,255,255,0.9); line-height:1.7;">Quay video tư vấn tự tin <strong style="color:#fbbf24;">5 câu hỏi</strong> để hoàn thành bài tập và được xét duyệt lên chính thức nhé!</div>
+  </div>
+</section>
+
 <section class="section active" id="flow">
   <div class="section-header">
     <h2>🗺️ Quy Trình Bán Hàng</h2>
@@ -858,27 +1140,75 @@
 
   <!-- SFABE LEGEND -->
   <div class="card">
-    <div style="font-family: 'Nunito', sans-serif; font-size: 17px; font-weight: 900; margin-bottom: 14px; color: var(--gray-800);">🧩 Mô Hình SFABE Là Gì?</div>
-    <div style="display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; text-align: center;">
-      <div style="padding:12px 8px; background: linear-gradient(135deg,#0a0a0a,#1a1a2e); border-radius:10px; color:white;">
-        <div style="font-size:22px; font-weight:900; color:#1DB954; font-family:Nunito,sans-serif;">S</div>
-        <div style="font-size:10px; margin-top:4px; opacity:0.8;">Tình huống</div>
+    <div style="font-family:'Nunito',sans-serif; font-size:17px; font-weight:900; margin-bottom:16px; color:var(--gray-800);">🧩 Mô Hình SFABE – Hướng Dẫn Chi Tiết</div>
+
+    <!-- S -->
+    <div style="background:#fffbeb; border-radius:12px; padding:14px 16px; margin-bottom:10px; border-left:4px solid #fbbf24;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#fbbf24;color:#78350f;font-family:Nunito,sans-serif;font-size:18px;font-weight:900;flex-shrink:0;">S</span>
+        <div>
+          <div style="font-size:13px; font-weight:900; color:#92400e;">Tình Huống (Situation)</div>
+          <div style="font-size:11px; color:#b45309;">Khơi gợi vấn đề / nỗi đau khách hàng đang gặp</div>
+        </div>
       </div>
-      <div style="padding:12px 8px; background: linear-gradient(135deg,#1d4ed8,#2563eb); border-radius:10px; color:white;">
-        <div style="font-size:22px; font-weight:900; font-family:Nunito,sans-serif;">F</div>
-        <div style="font-size:10px; margin-top:4px; opacity:0.8;">Đặc điểm</div>
+      <div style="background:white; border-radius:8px; padding:10px 12px; font-size:12px; color:#78350f; line-height:1.7;">
+        💬 <em>"Máy cũ anh/chị chụp ảnh không đẹp hoặc máy cũ anh/chị không có nhiều tính năng chỉnh ảnh AI?"</em>
       </div>
-      <div style="padding:12px 8px; background: linear-gradient(135deg,#be185d,#db2777); border-radius:10px; color:white;">
-        <div style="font-size:22px; font-weight:900; font-family:Nunito,sans-serif;">A</div>
-        <div style="font-size:10px; margin-top:4px; opacity:0.8;">Ưu thế</div>
+    </div>
+
+    <!-- F -->
+    <div style="background:#eff6ff; border-radius:12px; padding:14px 16px; margin-bottom:10px; border-left:4px solid #3b82f6;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#3b82f6;color:white;font-family:Nunito,sans-serif;font-size:18px;font-weight:900;flex-shrink:0;">F</span>
+        <div>
+          <div style="font-size:13px; font-weight:900; color:#1e40af;">Tính Năng (Feature)</div>
+          <div style="font-size:11px; color:#2563eb;">Ghép tính năng sản phẩm vào sau tình huống</div>
+        </div>
       </div>
-      <div style="padding:12px 8px; background: linear-gradient(135deg,#1DB954,#16a347); border-radius:10px; color:white;">
-        <div style="font-size:22px; font-weight:900; font-family:Nunito,sans-serif;">B</div>
-        <div style="font-size:10px; margin-top:4px; opacity:0.8;">Lợi ích</div>
+      <div style="background:white; border-radius:8px; padding:10px 12px; font-size:12px; color:#1e40af; line-height:1.7;">
+        💡 <em>"OPPO Reno16F 5G trang bị tính năng <strong>AI Remix</strong> – ghép ảnh/video độc quyền."</em>
       </div>
-      <div style="padding:12px 8px; background: linear-gradient(135deg,#ea580c,#c2410c); border-radius:10px; color:white;">
-        <div style="font-size:22px; font-weight:900; font-family:Nunito,sans-serif;">E</div>
-        <div style="font-size:10px; margin-top:4px; opacity:0.8;">Chứng minh</div>
+    </div>
+
+    <!-- A -->
+    <div style="background:#f5f3ff; border-radius:12px; padding:14px 16px; margin-bottom:10px; border-left:4px solid #7c3aed;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#7c3aed;color:white;font-family:Nunito,sans-serif;font-size:18px;font-weight:900;flex-shrink:0;">A</span>
+        <div>
+          <div style="font-size:13px; font-weight:900; color:#5b21b6;">Ưu Thế (Advantage)</div>
+          <div style="font-size:11px; color:#7c3aed;">Dùng từ: <strong>Nhất · Hơn · Độc quyền · Duy nhất · Tốt nhất</strong></div>
+        </div>
+      </div>
+      <div style="background:white; border-radius:8px; padding:10px 12px; font-size:12px; color:#5b21b6; line-height:1.7;">
+        ⭐ <em>"AI Remix là tính năng <strong>tốt nhất trong cùng phân khúc</strong> – <strong>độc quyền</strong> trên OPPO Reno16F."</em>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div style="background:#f0fdf4; border-radius:12px; padding:14px 16px; margin-bottom:10px; border-left:4px solid #1DB954;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#1DB954;color:white;font-family:Nunito,sans-serif;font-size:18px;font-weight:900;flex-shrink:0;">B</span>
+        <div>
+          <div style="font-size:13px; font-weight:900; color:#15803d;">Lợi Ích (Benefit)</div>
+          <div style="font-size:11px; color:#16a34a;">Bắt đầu bằng: <strong>"Giúp cho anh/chị..."</strong></div>
+        </div>
+      </div>
+      <div style="background:white; border-radius:8px; padding:10px 12px; font-size:12px; color:#15803d; line-height:1.7;">
+        💎 <em>"<strong>Giúp anh/chị</strong> chụp ảnh rõ nét, chỉnh ảnh không cần tải app thứ 3, tạo nội dung thu hút triệu like chỉ 1 chạm."</em>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div style="background:#fef2f2; border-radius:12px; padding:14px 16px; border-left:4px solid #ef4444;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#ef4444;color:white;font-family:Nunito,sans-serif;font-size:18px;font-weight:900;flex-shrink:0;">E</span>
+        <div>
+          <div style="font-size:13px; font-weight:900; color:#991b1b;">Chứng Minh (Evidence)</div>
+          <div style="font-size:11px; color:#dc2626;">Thao tác trực tiếp tính năng + đọc các bước thao tác</div>
+        </div>
+      </div>
+      <div style="background:white; border-radius:8px; padding:10px 12px; font-size:12px; color:#991b1b; line-height:1.7;">
+        🎯 <em>"Để em thao tác luôn cho anh/chị xem nhé – <strong>Bước 1:</strong> Mở Camera → <strong>Bước 2:</strong> Chọn AI Remix → <strong>Bước 3:</strong> Chọn ảnh chân dung → <strong>Bước 4:</strong> Xem kết quả."</em>
       </div>
     </div>
   </div>
@@ -1050,7 +1380,7 @@
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#dbeafe; font-size:24px;">📺</div>
       <div>
-        <div class="sfabe-feature-name">Màn Hình Bảo Vệ Mắt 120Hz</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Màn Hình Bảo Vệ Mắt 120Hz</div></div>
         <span class="pill pill-blue">Viền mỏng nhất PK</span>
         <span class="pill pill-blue">120Hz cao nhất PK</span>
       </div>
@@ -1058,101 +1388,97 @@
     <div class="situation-box">Màn hình viền dày, hiển thị kém, dùng đêm bị mỏi mắt.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#2563eb;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#2563eb; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• MH viền mỏng bậc nhất PK<br>• Tần số quét <strong>120Hz cao nhất PK</strong><br>• Giảm nhấp nháy <strong>2160Hz</strong></div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Tận hưởng màn hình chuẩn flagship với mức giá tầm trung. Chạm mượt lướt êm, xem phim đắm chìm, <strong>bảo vệ mắt cả ngày lẫn đêm</strong>.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Chỉ vào viền màn hình → mở video YouTube/TikTok để khách thấy trực tiếp.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <!-- Feature 2 -->
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe; font-size:24px;">🪐</div>
       <div>
-        <div class="sfabe-feature-name">Thiết Kế Hành Tinh 3D</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Thiết Kế Hành Tinh 3D</div></div>
         <span class="pill pill-purple">Độc quyền OPPO</span>
       </div>
     </div>
     <div class="situation-box">Điện thoại thiết kế không bắt mắt, màu sắc đơn điệu.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">Thiết kế độc quyền 3 màu:<br>• Trắng: <strong>Hành tinh 3D</strong><br>• Tím nhạt: <strong>Đuôi kỳ lân</strong><br>• Tím đậm: <strong>OPPO Glow</strong></div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Thiết kế phá cách độc đáo, <strong>nổi bật giữa đám đông</strong>, biểu tượng thời trang trên tay.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Cho khách hàng cầm và xoay máy dưới ánh sáng để thấy hiệu ứng lấp lánh.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <!-- Feature 3 -->
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#dcfce7; font-size:24px;">💧</div>
       <div>
-        <div class="sfabe-feature-name">Kháng Nước IP69K</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Kháng Nước IP69K</div></div>
         <span class="pill pill-green">Mạnh hơn IP68</span>
       </div>
     </div>
     <div class="situation-box">Lo lắng thiết bị sẽ nhanh hỏng khi gặp mưa hoặc môi trường nhiều bụi/ẩm ướt.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#15803d;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#15803d; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• Kháng bụi mịn cấp 6 (100%)<br>• Chịu nước áp lực mạnh<br>• Chịu nước nóng <strong>80°C</strong><br>• Quay chụp dưới nước được</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Yên tâm dùng khi <strong>mưa lớn bất chợt</strong> hay môi trường khắc nghiệt. Tiết kiệm chi phí sửa chữa do nước/bụi.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Mở APP Demo / Video Demo kháng nước để khách thấy trực quan.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <!-- Feature 4 -->
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3; font-size:24px;">🫧</div>
       <div>
-        <div class="sfabe-feature-name">OPPO Bubble</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">OPPO Bubble</div></div>
         <span class="pill pill-pink">Duy nhất trong ngành</span>
       </div>
     </div>
     <div class="situation-box">Muốn trải nghiệm phụ kiện độc đáo chính hãng nhưng đa phần phải mua online không rõ nguồn gốc.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#be185d;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#be185d; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content"><strong>Charm công nghệ duy nhất trong ngành</strong>. Màn hình phụ selfie, đếm giờ, thu phóng.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Cài ảnh/video thần tượng, nhận diện fandom khi đi concert. Selfie bằng camera sau cực chất.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Demo cài ảnh & quay chụp trực tiếp với OPPO Bubble.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 </section>
 
 <!-- SECTION: CAMERA -->
@@ -1166,124 +1492,119 @@
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3;">🤳</div>
       <div>
-        <div class="sfabe-feature-name">Camera Selfie Siêu Rộng 50MP</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Camera Selfie Siêu Rộng 50MP</div></div>
         <span class="pill pill-pink">Góc 100°</span> <span class="pill pill-pink">Độ phân giải cao nhất PK</span>
       </div>
     </div>
     <div class="situation-box">Chụp selfie thiếu chi tiết, không nét như camera sau.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#db2777;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#db2777; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• 50MP cao nhất PK<br>• Góc <strong>100° rộng nhất</strong><br>• Làm đẹp AI độc quyền</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Hình selfie rõ nét, da đẹp, mắt sáng. <strong>Chụp được hết cả nhóm</strong>, thu trọn khung cảnh phía sau.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Mở camera selfie → chụp thử 1 tấm → <strong>phóng to</strong> để khách thấy độ nét 50MP.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3;">🔭</div>
       <div>
-        <div class="sfabe-feature-name">Camera Chân Dung Tele 3.5x 50MP</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Camera Chân Dung Tele 3.5x 50MP</div></div>
         <span class="pill pill-pink">Duy nhất PK</span>
       </div>
     </div>
     <div class="situation-box">Muốn chụp chân dung xoá phông đẹp như máy ảnh cơ nhưng điện thoại không có Cam Tele.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#db2777;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#db2777; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content"><strong>Camera Tele 3.5x duy nhất phân khúc</strong>. 50MP siêu nét.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm có ngay ảnh chân dung <strong>xoá phông siêu nét chuẩn máy cơ</strong>, nổi bật chủ thể, thu hút triệu view.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK → Chụp demo trực tiếp để so sánh với camera thường.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3;">✂️</div>
       <div>
-        <div class="sfabe-feature-name">AI Popout & AI Remix</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">AI Popout & AI Remix</div></div>
         <span class="pill pill-pink">Độc quyền</span>
       </div>
     </div>
     <div class="situation-box">Muốn ghép ảnh trendy nhưng thao tác quá phức tạp.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#db2777;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#db2777; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• <strong>AI Popout:</strong> Tách chân dung bật khung độc quyền<br>• <strong>AI Remix:</strong> Ghép ảnh/video độc quyền</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm ghép ảnh chân dung tràn khung. 1 chạm người tí hon, người nhân bản – bắt kịp xu hướng, <strong>thu hút triệu like</strong>.</div>
       </div>
     </div>
     <div class="demo-tip">
-      <span class="demo-tip-icon">🎯</span>
+      <span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span>
       <span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK → Chụp demo trực tiếp. Cho khách tự thử để tạo wow.</span>
     </div>
-    <div style="height:14px;"></div>
-  </div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3;">📸</div>
       <div>
-        <div class="sfabe-feature-name">POP Camera (Digicam)</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">POP Camera (Digicam)</div></div>
         <span class="pill pill-pink">Retro Canon Y2K</span>
       </div>
     </div>
     <div class="situation-box">Muốn chụp ra chất ảnh retro như máy ảnh Digicam.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#db2777;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#db2777; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">Chế độ mô phỏng chất ảnh Digicam <strong>độc quyền</strong>.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm có chất ảnh flash mơ màng Canon Y2K, chất retro như máy chụp phim lấy liền Fuji, hiệu ứng hở sáng độc đáo.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK · Chụp demo trực tiếp.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK · Chụp demo trực tiếp.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#fce7f3;">🌙</div>
       <div>
-        <div class="sfabe-feature-name">Chân Dung Flash AI & Video 4K</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Chân Dung Flash AI & Video 4K</div>
       </div>
     </div>
     <div class="situation-box">Chụp đêm bằng ĐT không rõ nét, khuôn mặt bị tối. Muốn quay vlog nhưng camera không nét.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#db2777;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#db2777; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• 2 đèn flash tối ưu<br>• Bù sáng AI độc quyền<br>• <strong>Video 4K tốt nhất PK</strong> trước & sau</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Chân dung sáng rõ ngày lẫn đêm. Quay vlog 4K siêu nét, <strong>không cần máy ảnh cồng kềnh</strong>.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo trực tiếp chụp trong điều kiện thiếu sáng.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo trực tiếp chụp trong điều kiện thiếu sáng.</span></div>
+      </div>
 </section>
 
 <!-- SECTION: HIỆU NĂNG -->
@@ -1297,93 +1618,89 @@
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ffedd5;">💎</div>
       <div>
-        <div class="sfabe-feature-name">Dimensity 7300 5G</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Dimensity 7300 5G</div></div>
         <span class="pill pill-orange">Tiến trình 4nm</span>
       </div>
     </div>
     <div class="situation-box">Chơi game nặng bị giật lag, đứng hình và nóng máy.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#ea580c;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#ea580c; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• Tiến trình <strong>4nm tiên tiến bậc nhất</strong><br>• AI LinkBoost 4.0<br>• AI Hyperboost 3.0</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Chơi game mượt mà, sóng wifi mạnh, máy mát mẻ, khung hình ổn định – <strong>tăng tỉ lệ chiến thắng</strong>.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK game. Cho khách chơi thử để cảm nhận độ mượt.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK game. Cho khách chơi thử để cảm nhận độ mượt.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ffedd5;">🔋</div>
       <div>
-        <div class="sfabe-feature-name">Pin 7000mAh + SUPERVOOC 80W</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Pin 7000mAh + SUPERVOOC 80W</div></div>
         <span class="pill pill-orange">Lớn nhất phân khúc</span>
       </div>
     </div>
     <div class="situation-box">Dung lượng pin thấp, mau hết pin + sạc lâu, mất thời gian chờ đợi.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#ea580c;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#ea580c; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• <strong>7000mAh lớn nhất PK</strong><br>• Sạc SuperVOOC 80W siêu nhanh</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Sử dụng lên đến <strong>2 ngày không lo hết pin</strong>. Tiết kiệm thời gian sạc với công nghệ sạc siêu nhanh OPPO.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK hoặc so sánh tốc độ sạc thực tế.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK hoặc so sánh tốc độ sạc thực tế.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ffedd5;">💾</div>
       <div>
-        <div class="sfabe-feature-name">8GB RAM + 256GB Storage</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">8GB RAM + 256GB Storage</div></div>
         <span class="pill pill-orange">Dẫn đầu phân khúc</span>
       </div>
     </div>
     <div class="situation-box">Mở nhiều ứng dụng khiến máy bị đứng. Bộ nhớ không đủ lưu trữ.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#ea580c;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#ea580c; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• Dung lượng <strong>dẫn đầu phân khúc</strong><br>• Mở rộng RAM lên <strong>8GB cao nhất</strong></div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Đa nhiệm mượt mà, lưu trữ thả ga với bộ nhớ lớn hơn, <strong>không lo đầy bộ nhớ</strong>.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK → Mở tăng dung lượng RAM trong cài đặt cho khách xem.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo bằng APK → Mở tăng dung lượng RAM trong cài đặt cho khách xem.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ffedd5;">🎮</div>
       <div>
-        <div class="sfabe-feature-name">Công Cụ Tùy Chỉnh Game</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Công Cụ Tùy Chỉnh Game</div></div>
         <span class="pill pill-orange">Tốt nhất PK</span>
       </div>
     </div>
     <div class="situation-box">Muốn tuỳ chỉnh tầm ngắm, độ nhạy cảm ứng khi chơi game nhưng ĐT không hỗ trợ.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#ea580c;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#ea580c; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">Công cụ game tuỳ chỉnh <strong>tốt nhất phân khúc</strong>.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Chơi PUBG, Freefire nhắm mục tiêu chuẩn hơn, cảm ứng nhạy hơn – <strong>tăng tỷ lệ chiến thắng</strong>.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo trực tiếp trong game PUBG / Freefire.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo trực tiếp trong game PUBG / Freefire.</span></div>
+      </div>
 </section>
 
 <!-- SECTION: HỆ ĐIỀU HÀNH -->
@@ -1397,139 +1714,133 @@
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">🎨</div>
       <div>
-        <div class="sfabe-feature-name">ColorOS 16 Siêu Mượt</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">ColorOS 16 Siêu Mượt</div></div>
         <span class="pill pill-purple">Chứng nhận mượt 6 năm</span>
       </div>
     </div>
     <div class="situation-box">Muốn trải nghiệm độ mượt như trên flagship.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">Thuật toán hoạt ảnh song song độc quyền. <strong>Chứng nhận mượt 6 năm</strong>.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Trải nghiệm độ mượt flagship <strong>ngay trên sản phẩm tầm trung</strong>.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo "rắn săn app" hoặc ảnh nền chiều sâu động để thấy độ mượt.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo "rắn săn app" hoặc ảnh nền chiều sâu động để thấy độ mượt.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">🧠</div>
       <div>
-        <div class="sfabe-feature-name">AI Mind Space</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">AI Mind Space</div></div>
         <span class="pill pill-purple">Gemini · ChatGPT · Perplexity</span>
       </div>
     </div>
     <div class="situation-box">Hay chụp màn hình những gì muốn nhớ, lúc cần tìm lại rất mất thời gian, thông tin phân mảnh.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• <strong>Lưu trữ thông minh</strong>: phân tích, tóm tắt, lưu kèm liên kết<br>• <strong>Quản lý thông minh</strong>: sắp xếp ký ức<br>• <strong>3 mô hình AI</strong>: Gemini, ChatGPT, Perplexity</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm lưu trữ khoa học, đề xuất lịch trình, điều hướng địa chỉ, <strong>hỏi đáp 24/7</strong> với AI tốt nhất.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Vuốt 3 ngón từ dưới lên → chụp vé máy bay / poster sự kiện → xem AI phân tích và đề xuất lịch trình.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Vuốt 3 ngón từ dưới lên → chụp vé máy bay / poster sự kiện → xem AI phân tích và đề xuất lịch trình.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">🔗</div>
       <div>
-        <div class="sfabe-feature-name">O+ Connect</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">O+ Connect</div></div>
         <span class="pill pill-purple">Nhanh hơn Airdrop</span>
       </div>
     </div>
     <div class="situation-box">Lo ngại bạn bè dùng iPhone, mình xài Android sẽ khó kết nối, chia sẻ hình ảnh.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">Ra mắt <strong>đầu tiên trong ngành</strong>. Truyền file <strong>nhanh hơn cả Airdrop</strong>.</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm chia sẻ ảnh/file giữa OPPO và iPhone. Đồng bộ <strong>thông báo, tin nhắn, cuộc gọi</strong> giữa 2 thiết bị.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo chia sẻ ảnh trực tiếp giữa OPPO và iPhone trước mặt khách.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo chia sẻ ảnh trực tiếp giữa OPPO và iPhone trước mặt khách.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">🌐</div>
       <div>
-        <div class="sfabe-feature-name">Dịch Menu AI & Thu Chi AI</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Dịch Menu AI & Thu Chi AI</div></div>
         <span class="pill pill-purple">Duy nhất PK</span>
       </div>
     </div>
     <div class="situation-box">Đi du lịch nước ngoài khó khăn gọi món ăn. Muốn quản lý thu chi nhưng app phải trả phí.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• <strong>Dịch Menu AI:</strong> biến menu ngoại thành app gọi món (có ảnh, tiền quy đổi, cảnh báo dị ứng)<br>• <strong>Thu Chi AI:</strong> quét hoá đơn tự động, Snapkey ghi âm</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">Du lịch nước ngoài siêu tiện. Quản lý tài chính cá nhân miễn phí, không quảng cáo, thao tác đơn giản.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo quản lý thu chi bằng SnapKey (nhấn giữ và ghi âm).</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo quản lý thu chi bằng SnapKey (nhấn giữ và ghi âm).</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">🛠️</div>
       <div>
-        <div class="sfabe-feature-name">Hộp Công Cụ AI</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Hộp Công Cụ AI</div></div>
         <span class="pill pill-purple">Dịch · Tóm tắt · Ghi âm · Soạn thảo</span>
       </div>
     </div>
     <div class="situation-box">Cần bộ công cụ hỗ trợ dịch, tóm tắt, ghi âm, soạn thảo để giúp ích công việc.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content"><strong>Mạnh nhất PK:</strong> Dịch · Tóm tắt · Ghi âm 3.0 · Soạn thảo · Quét tài liệu AI (xuất file Word)</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm dịch tài liệu/hội thoại/phụ đề video. Ghi âm tự tóm tắt cuộc họp. Quét tài liệu tự làm thẳng, trích xuất Word.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo Quét tài liệu AI – chụp hóa đơn/tài liệu và xem AI xử lý.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Demo Quét tài liệu AI – chụp hóa đơn/tài liệu và xem AI xử lý.</span></div>
+      </div>
 
   <div class="sfabe-row">
     <div class="sfabe-header">
       <div class="sfabe-icon" style="background:#ede9fe;">📄</div>
       <div>
-        <div class="sfabe-feature-name">Scan AI – Quét Tài Liệu Thông Minh</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><span class="sfabe-letter sl-f" title="F – Tính năng">F</span><div class="sfabe-feature-name" style="margin-bottom:0;">Scan AI – Quét Tài Liệu Thông Minh</div></div>
         <span class="pill pill-purple">Duy nhất PK</span> <span class="pill pill-purple">Xuất file Word</span>
       </div>
     </div>
     <div class="situation-box">Chụp ảnh tài liệu bị mờ, không rõ nét. Cần scan rồi chỉnh sửa luôn.</div>
     <div class="sfabe-body">
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#7c3aed;">✅ Ưu Thế (A)</div>
+        <div class="sfabe-label" style="color:#7c3aed; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-a">A</span>Ưu Thế – Lợi Thế</div>
         <div class="sfabe-cell-content">• Quét liên tục tốc độ cao + tăng cường AI<br>• Chất lượng HD vượt trội (hơn Vivo, Huawei, WPS)<br>• <strong>Trích xuất thông minh độc quyền</strong> → xuất Word</div>
       </div>
       <div class="sfabe-cell">
-        <div class="sfabe-label" style="color:#1DB954;">💎 Lợi Ích (B)</div>
+        <div class="sfabe-label" style="color:#1DB954; display:flex; align-items:center; gap:6px;"><span class="sfabe-letter sl-b">B</span>Lợi Ích</div>
         <div class="sfabe-cell-content">1 chạm scan tài liệu HD, tự làm thẳng, làm nét. Sau khi scan có thể <strong>chỉnh sửa ngay</strong> – biến thành bản nháp trong 1 bước, tiết kiệm giờ đồng hồ.</div>
       </div>
     </div>
-    <div class="demo-tip"><span class="demo-tip-icon">🎯</span><span class="demo-tip-text"><strong>DEMO:</strong> Chụp 1 tờ hoá đơn / bài giảng → xem AI tự làm thẳng và trích xuất nội dung ra file Word.</span></div>
-    <div style="height:14px;"></div>
-  </div>
+    <div class="demo-tip"><span class="sfabe-letter sl-e" style="background:rgba(239,68,68,0.2);color:#fca5a5;border-color:rgba(239,68,68,0.4);flex-shrink:0;">E</span><span class="demo-tip-text"><strong>DEMO:</strong> Chụp 1 tờ hoá đơn / bài giảng → xem AI tự làm thẳng và trích xuất nội dung ra file Word.</span></div>
+      </div>
 </section>
 
 <!-- SECTION: SO SÁNH -->
@@ -1540,7 +1851,7 @@
   </div>
 
   <!-- vs Reno15F -->
-  <div style="margin-bottom:8px;">
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><div style="margin-bottom:8px;">
     <div style="background:var(--gray-800); color:white; padding:12px 16px; border-radius:var(--radius) var(--radius) 0 0; font-family:Nunito,sans-serif; font-size:15px; font-weight:800;">
       🆚 Reno16F 5G <span style="color:#1DB954;">vs</span> Reno15F 5G
     </div>
@@ -1551,7 +1862,7 @@
       <tr><td>Hiệu năng</td><td>Dimensity 7300 · <strong>AI LinkBoost 4.0</strong> · Tối ưu game UGC</td><td>QC 6 Gen 1 · AI LinkBoost 3.0 (cũ hơn)</td></tr>
       <tr><td>Hệ điều hành</td><td><strong>AI Mind Space</strong> (3 AI) · SnapKey · Thu Chi AI · Dịch Menu AI · Quét tài liệu AI</td><td>Không có tất cả</td></tr>
     </table>
-  </div>
+  </div></div>
 
   <!-- vs Samsung A57 -->
   <div style="margin-top:20px; margin-bottom:8px;">
@@ -1594,8 +1905,7 @@
     <div class="obj-answer">
       OPPO là <strong>thương hiệu toàn cầu có mặt trên hơn 30 quốc gia</strong>, hiện được phân phối khắp các hệ thống bán lẻ lớn tại VN như Thegioididong, FPTshop – giữ vị trí cao về doanh số và được sự ủng hộ của khách hàng suốt <strong>13 năm qua</strong>. Cùng với <strong>44 trung tâm bảo hành toàn quốc</strong> và chính sách <strong>"bảo hành 1 giờ"</strong>, anh/chị có thể hoàn toàn yên tâm khi mua hàng bên em.
     </div>
-    <div style="height:4px;"></div>
-  </div>
+      </div>
 </section>
 
 
@@ -2428,7 +2738,12 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to nav tabs so content is immediately visible
+    const nav = document.querySelector('.nav-tabs');
+    if (nav) {
+      const y = nav.getBoundingClientRect().top + window.scrollY - 2;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   }
 
   function toggleQA(item) {
